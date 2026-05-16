@@ -58,6 +58,10 @@ textarea {
   box-shadow: 0 12px 38px rgba(15, 76, 129, 0.09);
 }
 
+.mobile-menu-toggle {
+  display: none;
+}
+
 .brand-logo-premium {
   width: auto;
   height: 70px;
@@ -311,40 +315,90 @@ textarea {
 
   .premium-header-inner {
     display: grid !important;
-    min-height: auto;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    justify-items: center;
-    gap: 14px;
+    column-gap: 14px;
+    width: 100%;
+    min-height: 92px;
     padding-block: 14px;
   }
 
-  header.nav-glow nav {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    display: grid !important;
-    width: min(100%, 320px);
-    grid-template-columns: repeat(3, max-content);
+  header.nav-glow {
+    position: relative;
+  }
+
+  .premium-header-inner > a:first-child {
+    display: inline-flex;
+    justify-self: start;
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex;
+    min-width: 76px;
+    height: 44px;
+    align-items: center;
     justify-content: center;
-    justify-self: center;
-    gap: 10px 20px;
-    font-size: 0.7rem;
-    line-height: 1.1;
-    text-align: center;
+    padding: 0 14px;
+    color: var(--blue);
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid rgba(15, 76, 129, 0.18);
+    background: #ffffff;
+    box-shadow: 0 10px 24px rgba(15, 76, 129, 0.08);
+    justify-self: end;
+  }
+
+  header.nav-glow nav {
+    display: grid !important;
+    grid-column: 1 / -1;
+    width: 100%;
+    max-height: 0;
+    grid-template-columns: 1fr;
+    gap: 0;
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid transparent;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    text-align: left;
+    opacity: 0;
+    pointer-events: none;
+    margin-top: 12px;
+    transition:
+      max-height 220ms ease,
+      opacity 180ms ease,
+      padding 180ms ease,
+      border-color 180ms ease;
+  }
+
+  header.mobile-nav-open nav {
+    max-height: 270px;
+    padding: 8px 14px;
+    border-color: rgba(15, 76, 129, 0.14);
+    opacity: 1;
+    pointer-events: auto;
   }
 
   header.nav-glow nav a {
-    padding: 6px 0;
+    padding: 12px 2px;
+    border-bottom: 1px solid rgba(15, 76, 129, 0.08);
   }
 
   header.nav-glow .header-cta {
-    grid-column: 1;
-    grid-row: 3;
-    justify-self: center;
+    display: none;
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 12px;
     min-height: 40px;
     padding-inline: 14px;
     font-size: 0.7rem;
     letter-spacing: 0.05em;
+  }
+
+  header.mobile-nav-open .header-cta {
+    display: inline-flex;
   }
 
   #home > div.mx-auto {

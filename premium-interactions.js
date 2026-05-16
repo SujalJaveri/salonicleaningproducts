@@ -4,6 +4,8 @@ const featuredSurface = document.querySelector("#featured-product-surface");
 const featuredFragrance = document.querySelector("#featured-product-fragrance");
 const featuredUsage = document.querySelector("#featured-product-usage");
 const featuredCards = document.querySelectorAll(".featured-product-card");
+const premiumHeader = document.querySelector("header.nav-glow");
+const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
 
 if (featuredImage && featuredCards.length) {
   featuredCards.forEach((card) => {
@@ -24,6 +26,24 @@ if (featuredImage && featuredCards.length) {
       featuredSurface.textContent = card.dataset.surface;
       featuredFragrance.textContent = card.dataset.fragrance;
       featuredUsage.textContent = card.dataset.usage;
+    });
+  });
+}
+
+if (premiumHeader && mobileMenuToggle) {
+  mobileMenuToggle.addEventListener("click", () => {
+    const isOpen = premiumHeader.classList.toggle("mobile-nav-open");
+    mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+    mobileMenuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    mobileMenuToggle.textContent = isOpen ? "Close" : "Menu";
+  });
+
+  premiumHeader.querySelectorAll("nav a, .header-cta").forEach((link) => {
+    link.addEventListener("click", () => {
+      premiumHeader.classList.remove("mobile-nav-open");
+      mobileMenuToggle.setAttribute("aria-expanded", "false");
+      mobileMenuToggle.setAttribute("aria-label", "Open menu");
+      mobileMenuToggle.textContent = "Menu";
     });
   });
 }
