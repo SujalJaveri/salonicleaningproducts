@@ -61,7 +61,7 @@
         },
       };
     </script>
-    <link rel="stylesheet" href="premium-home.css?v=3" />
+    <link rel="stylesheet" href="premium-home.css?v=5" />
     <script type="importmap">
       {
         "imports": {
@@ -112,7 +112,7 @@
       </div>
 
       <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur nav-glow">
-        <div class="mx-auto flex min-h-[86px] max-w-7xl flex-wrap items-center justify-between gap-5 px-5 lg:px-8">
+        <div class="premium-header-inner mx-auto flex min-h-[86px] max-w-7xl flex-wrap items-center justify-between gap-5 px-5 lg:px-8">
           <a href="#home" class="flex items-center" aria-label="Saloni Cleaning Products home">
             <img class="brand-logo-premium" src="assets/saloni-logo-final-2026.jpg" alt="Saloni Cleaning Products logo" />
           </a>
@@ -123,7 +123,7 @@
             <a class="hover:text-saloni-blue" href="#distributors">Distributors</a>
             <a class="hover:text-saloni-blue" href="#contact">Contact</a>
           </nav>
-          <a class="inline-flex min-h-11 items-center justify-center bg-saloni-blue px-5 text-sm font-black uppercase tracking-[0.08em] text-white shadow-product hover:bg-[#0b416f]" href="#distributors">Become Distributor</a>
+          <a class="header-cta inline-flex min-h-11 items-center justify-center bg-saloni-blue px-5 text-sm font-black uppercase tracking-[0.08em] text-white shadow-product hover:bg-[#0b416f]" href="#distributors">Become Distributor</a>
         </div>
       </header>
 
@@ -240,18 +240,24 @@
           </div>
         </section>
 
-        <section class="bg-saloni-bg py-24 lg:py-32">
+        <section class="bg-saloni-bg py-24 lg:py-32" id="featured-products">
           <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-[0.86fr_1fr] lg:px-8">
             <div class="product-stage grid min-h-[560px] place-items-center p-8 shadow-premium">
-              <img src="assets/products/leo-power-concentrate-cleaner.jpg" alt="Leo Power Concentrate Cleaner" class="relative z-10 max-h-[430px] object-contain product-shadow" />
+              <img id="featured-product-image" src="assets/products/leo-power-concentrate-cleaner.jpg" alt="Leo Power Concentrate Cleaner" class="relative z-10 max-h-[430px] object-contain product-shadow" />
             </div>
             <div>
               <p class="section-kicker mb-4 text-xs font-black uppercase text-saloni-red">Featured Products</p>
               <h2 class="font-display text-4xl font-black leading-tight text-saloni-ink sm:text-5xl">High-demand products for retail and distribution.</h2>
-              <div class="mt-9 grid gap-4">
-                <article class="border border-saloni-blue bg-white p-5 shadow-product"><span class="text-xs font-black uppercase tracking-[0.12em] text-saloni-red">200 ml, 500 ml, 1 L, 5 L, 35 L</span><h3 class="mt-2 font-display text-2xl font-black text-saloni-blue">Leo Power Concentrate Cleaner</h3><p class="mt-2 text-sm leading-6 text-slate-600">Degreasing, deodorising, pine-like freshness for floors and hard surfaces.</p></article>
-                <article class="border border-slate-200 bg-white/70 p-5"><span class="text-xs font-black uppercase tracking-[0.12em] text-saloni-red">500 ml, 1 L, 5 L, 35 L</span><h3 class="mt-2 font-display text-2xl font-black text-saloni-blue">Shine Perfect Dishwash Gel</h3><p class="mt-2 text-sm leading-6 text-slate-600">Tough on grease, gentle on hands, with fresh lime fragrance.</p></article>
-                <article class="border border-slate-200 bg-white/70 p-5"><span class="text-xs font-black uppercase tracking-[0.12em] text-saloni-red">500 ml, 1 L, 5 L, 35 L</span><h3 class="mt-2 font-display text-2xl font-black text-saloni-blue">Safedi Liquid Detergent</h3><p class="mt-2 text-sm leading-6 text-slate-600">Machine and bucket wash liquid detergent for stain and odour control.</p></article>
+              <div class="featured-details mt-6 grid gap-3 bg-white p-5 shadow-product sm:grid-cols-2" aria-live="polite">
+                <p><strong>Key benefits:</strong> <span id="featured-product-benefits">Degreasing, deodorising, pine-like freshness</span></p>
+                <p><strong>Surface:</strong> <span id="featured-product-surface">Floors and hard surfaces</span></p>
+                <p><strong>Fragrance:</strong> <span id="featured-product-fragrance">Pine freshness</span></p>
+                <p><strong>Usage:</strong> <span id="featured-product-usage">Dilute 50 to 100 ml in half a bucket of water.</span></p>
+              </div>
+              <div class="featured-product-list mt-5 grid gap-4" role="tablist" aria-label="Featured products">
+                <button class="featured-product-card is-active border border-saloni-blue bg-white p-5 text-left shadow-product" type="button" role="tab" aria-selected="true" data-image="assets/products/leo-power-concentrate-cleaner.jpg" data-alt="Leo Power Concentrate Cleaner" data-benefits="Degreasing, deodorising, pine-like freshness" data-surface="Floors and hard surfaces" data-fragrance="Pine freshness" data-usage="Dilute 50 to 100 ml in half a bucket of water."><span class="text-xs font-black uppercase tracking-[0.12em] text-saloni-red">200 ml, 500 ml, 1 L, 5 L, 35 L</span><h3 class="mt-2 font-display text-2xl font-black text-saloni-blue">Leo Power Concentrate Cleaner</h3><p class="mt-2 text-sm leading-6 text-slate-600">Degreasing, deodorising, pine-like freshness for floors and hard surfaces.</p></button>
+                <button class="featured-product-card border border-slate-200 bg-white/70 p-5 text-left" type="button" role="tab" aria-selected="false" data-image="assets/products/shine-perfect-dishwash-gel.jpg" data-alt="Shine Perfect Dishwash Gel" data-benefits="Tough on grease, gentle on hands" data-surface="Utensils and kitchenware" data-fragrance="Fresh lime" data-usage="Mix one teaspoon in water, scrub, and rinse."><span class="text-xs font-black uppercase tracking-[0.12em] text-saloni-red">500 ml, 1 L, 5 L, 35 L</span><h3 class="mt-2 font-display text-2xl font-black text-saloni-blue">Shine Perfect Dishwash Gel</h3><p class="mt-2 text-sm leading-6 text-slate-600">Tough on grease, gentle on hands, with fresh lime fragrance.</p></button>
+                <button class="featured-product-card border border-slate-200 bg-white/70 p-5 text-left" type="button" role="tab" aria-selected="false" data-image="assets/products/safedi-liquid-detergent.jpg" data-alt="Safedi Liquid Detergent" data-benefits="Stain removal, odour control, fabric-friendly wash" data-surface="Clothes, machine wash, bucket wash" data-fragrance="Fresh after-wash effect" data-usage="Use one cap for regular loads and two caps for heavier loads."><span class="text-xs font-black uppercase tracking-[0.12em] text-saloni-red">500 ml, 1 L, 5 L, 35 L</span><h3 class="mt-2 font-display text-2xl font-black text-saloni-blue">Safedi Liquid Detergent</h3><p class="mt-2 text-sm leading-6 text-slate-600">Machine and bucket wash liquid detergent for stain and odour control.</p></button>
               </div>
             </div>
           </div>
@@ -340,5 +346,6 @@
         <p>Please enable JavaScript to view the complete Saloni Cleaning Products website.</p>
       </main>
     </noscript>
+    <script defer src="premium-interactions.js?v=1"></script>
   </body>
 </html>
