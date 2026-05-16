@@ -6,8 +6,8 @@ const h = React.createElement;
 const M = motion;
 
 const A = {
-  logo: "assets/saloni-logo-catalog.jpg",
-  lineup: "assets/catalog-product-lineup.jpg",
+  logo: "assets/saloni-logo-final-2026.jpg",
+  lineup: "assets/catalog-product-lineup-cropped.jpg",
   hero: "assets/hero-products-crop.jpg",
   womenFactory: "assets/women-led-manufacturing.jpg",
   products: {
